@@ -10,4 +10,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^prediction/', include('prediction.urls')),
+    url(r'^twitter/', include('twitter.urls')),
 )
