@@ -4,10 +4,8 @@ import google_prediction
 from google_prediction.models import HostedModel
 
 
-def try_ready(request):
-    m = HostedModel('sample.sentiment')
-    print 'cem is not handsome:'
-    print m.predict('cem is not handsome')['outputLabel']
-    print 'cem is so sexy:'
-    print m.predict('cem is so sexy')['outputLabel']
-    return render_to_response('try_ready.html')
+# def try_ready(request):
+#     m = HostedModel('sample.sentiment')
+#     print 'cem is not handsome:'
+#     print m.predict('cem is not handsome')['outputLabel']
+#     return render_to_response('try_ready.html')
