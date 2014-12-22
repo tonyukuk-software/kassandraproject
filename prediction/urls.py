@@ -5,5 +5,4 @@ import django.contrib.auth
 
 urlpatterns = patterns('',
                     url(r'^try_ready/$', 'prediction.views.try_ready'),
-
-                       )
+                    )
