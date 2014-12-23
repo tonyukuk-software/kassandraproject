@@ -5,6 +5,7 @@ from bitcoin_analyze.models import Rank, Expected_Value, Volume, Change, Change_
 from btcturk_client.client import Btcturk
 import urllib2
 from BeautifulSoup import BeautifulSoup
+import time
 
 __author__ = 'cemkiy'
 # -*- coding: utf-8 -*-
@@ -17,7 +18,7 @@ class analyze:
         self.volume = True
         self.change = True
         self.change_rate = True
-
+        self.main_result = True
 
     def guess_what(self):
         self.twitter = self.guess_twitter()
@@ -26,17 +27,111 @@ class analyze:
         self.change = self.guess_change()
         self.change_rate = self.guess_change_rate()
 
+        last_ranks = Rank.objects.last()
+        if not last_ranks:
+            last_ranks = Rank()
+            last_ranks.save()
+
+        high_result = 0.0
+        low_result = 0.0
+
+        if self.twitter:
+            high_result += last_ranks.twitter
+        else:
+            low_result += last_ranks.twitter
+
+        if self.expected_value:
+            high_result += last_ranks.expected_value
+        else:
+            low_result += last_ranks.expected_value
+
+        if self.volume:
+            high_result += last_ranks.volume
+        else:
+            low_result += last_ranks.volume
+
+        if self.change:
+            high_result += last_ranks.change
+        else:
+            low_result += last_ranks.change
+
+        if self.change_rate:
+            high_result += last_ranks.change_rate
+        else:
+            low_result += last_ranks.change_rate
+
+        if high_result > low_result:
+            self.main_result = True
+        else:
+            self.main_result = False
+
+        return self.main_result
+
+
+    def get_now_ask_price(self):
+        return float(self._btcturk.ticker()['ask'])
+
+
+    def send_new_rank(self):
+        old_rank = Rank.objects.last()
+        set_new_ranks = Rank()
+        right_list = []
+        wrong_list = []
+
+        if self.twitter == self.main_result:
+            right_list.append(self.twitter)
+        else:
+            wrong_list.append(self.twitter)
+
+        if self.expected_value == self.main_result:
+            right_list.append(self.expected_value)
+        else:
+            wrong_list.append(self.expected_value)
+
+        if self.volume == self.main_result:
+            right_list.append(self.volume)
+        else:
+            wrong_list.append(self.volume)
+
+        if self.change == self.main_result:
+            right_list.append(self.change)
+        else:
+            wrong_list.append(self.change)
+
+        if self.change_rate == self.main_result:
+            right_list.append(self.change_rate)
+        else:
+            wrong_list.append(self.change_rate)
+
+        distribution_points = (2 * len(wrong_list)) / len(right_list)
+        for element in right_list:
+            if element == self.twitter:
+                set_new_ranks.twitter = old_rank.twitter + distribution_points
+            elif element == self.expected_value:
+                set_new_ranks.expected_value = old_rank.expected_value + distribution_points
+            elif element == self.volume:
+                set_new_ranks.volume = old_rank.volume + distribution_points
+            elif element == self.change:
+                set_new_ranks.change = old_rank.change + distribution_points
+            else:
+                set_new_ranks.change_rate = old_rank.change_rate + distribution_points
+
+        for element in wrong_list:
+            if element == self.twitter:
+                set_new_ranks.twitter = old_rank.twitter - 2
+            elif element == self.expected_value:
+                set_new_ranks.expected_value = old_rank.expected_value - 2
+            elif element == self.volume:
+                set_new_ranks.volume = old_rank.volume - 2
+            elif element == self.change:
+                set_new_ranks.change = old_rank.change - 2
+            else:
+                set_new_ranks.change_rate = old_rank.change_rate - 2
 
         try:
-            set_new_ranks = Rank(twitter=self.twitter, expected_value=self.expected_value, volume=self.volume,
-                                 change=self.change, change_rate=self.change_rate)
             set_new_ranks.save()
         except Exception as e:
             print e
-
-
-
-        print self._btcturk.ticker()
 
 
     def guess_twitter(self):
@@ -126,4 +221,4 @@ class analyze:
         return result
 
 a = analyze()
-a.guess_what()
+a.send_new_rank()
