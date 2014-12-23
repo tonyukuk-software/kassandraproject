@@ -3,3 +3,4 @@ google-api-python-client==1.2
 httplib2==0.8
 pyOpenSSL==0.13.1
 wsgiref==0.1.2
+twython==3.2.0
