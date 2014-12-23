@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DIRNAME = os.path.abspath(os.path.dirname(__file__))
+
 
 GOOGLE_PREDICTION_PRIVATE_KEY = os.path.join(BASE_DIR, 'kassandra-bd194a2c2a59.p12')
 GOOGLE_PREDICTION_PROJECT_EMAIL = '45681005892-snap58kd1fjnvu6u9eq4iml3r05rbs9q@developer.gserviceaccount.com' # REPLACE WITH YOUR PROJECT EMAIL
@@ -39,7 +39,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
     'kassandra',
+    'bitcoin_analyze',
+    'member',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,9 +63,12 @@ WSGI_APPLICATION = 'kassandraproject.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'kassandradatabase',
+          'USER': 'postgres',
+          'PASSWORD': 'root',
+          'HOST': 'localhost',
     }
 }
 
@@ -87,5 +93,4 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
-    os.path.join(DIRNAME, 'templates/'),
 )
