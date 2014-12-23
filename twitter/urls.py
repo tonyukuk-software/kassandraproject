@@ -5,6 +5,6 @@ from prediction import views
 import django.contrib.auth
 
 urlpatterns = patterns('',
-                    url(r'^twitter/$', 'twitter.views.login'),
-
-                       )
+                    url(r'^login/$', 'twitter.views.login'),
+                    url(r'^try_ready/$', 'twitter.views.try_ready'),
+                    )

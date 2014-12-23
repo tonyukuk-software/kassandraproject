@@ -16,6 +16,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 GOOGLE_PREDICTION_PRIVATE_KEY = os.path.join(BASE_DIR, 'kassandra-bd194a2c2a59.p12')
 GOOGLE_PREDICTION_PROJECT_EMAIL = '45681005892-snap58kd1fjnvu6u9eq4iml3r05rbs9q@developer.gserviceaccount.com' # REPLACE WITH YOUR PROJECT EMAIL
 
+
+#Twython Constants
+APP_KEY = 'eWKY4YYQdLG2zQUL0DNXyRwBX'
+APP_SECRET = '4mc2U6FcCuxsqogKzJJVQNOeisNZCg48N8uoOdJZL0gxxWX5pE'
+OAUTH2_ACCESS_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAOVDbQAAAAAAx5iO14wObCejEeQ9r5itFDamj7g%3De1rg6KlOVpEtwKfx6opOGeYYQFIsgTQ7tkigBADnd99oSvbxjd'
+OAUTH_TOKEN = 'XSjQNRo7GcNfnApCx7nBE3QGvV3Wanu7'
+OAUTH_TOKEN_SECRET = 'fuiH6KEBUrRWRor95BVw3c3Q3slZQcmZ'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -43,6 +51,7 @@ INSTALLED_APPS = (
     'kassandra',
     'bitcoin_analyze',
     'member',
+    'twython',
 )
 
 MIDDLEWARE_CLASSES = (
