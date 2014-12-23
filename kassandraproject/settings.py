@@ -102,4 +102,10 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
+    os.path.join(BASE_DIR, 'member/templates'),
 )
+
+#Admin Log
+ADMINS = (
+    ('cemkiy', 'se.cemkiy@gmail.com'),
+    ('barisariburnu', 'barisariburnu@gmail.com'),)
