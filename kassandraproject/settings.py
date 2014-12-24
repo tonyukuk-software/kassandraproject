@@ -103,6 +103,7 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
     os.path.join(BASE_DIR, 'member/templates'),
+    os.path.join(BASE_DIR, 'bitcoin_analyze/templates'),
 )
 
 #Admin Log
