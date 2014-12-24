@@ -1,11 +1,13 @@
 import os
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kassandraproject.settings")
+from twitter.views import get_tweets_by_param
 from bitcoin_analyze.models import Rank, Expected_Value, Volume, Change, Change_Rate
 from btcturk_client.client import Btcturk
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import time
+import google_prediction
+from google_prediction.models import HostedModel
 
 __author__ = 'cemkiy'
 # -*- coding: utf-8 -*-
@@ -135,7 +137,19 @@ class analyze:
 
 
     def guess_twitter(self):
-        return True
+        tweet_list = get_tweets_by_param('bitcoin', 5)
+        positive_counter = 0
+        negative_counter = 0
+        m = HostedModel('sample.sentiment')
+        for tweet in tweet_list:
+            if m.predict(tweet)['outputLabel'] == 'positive':
+                positive_counter += 1
+            else:
+                negative_counter += 1
+        if positive_counter > negative_counter:
+            return True
+        else:
+            return False
 
 
     def guess_expected_value(self):
@@ -220,5 +234,5 @@ class analyze:
 
         return result
 
-a = analyze()
-a.send_new_rank()
+# a = analyze()
+# a.guess_twitter()

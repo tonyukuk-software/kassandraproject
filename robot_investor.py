@@ -15,33 +15,53 @@ class robot_investor:
         self.bitcoin_bought_amount = 0.0
 
     def theater_stage(self):
+        self.analyze.guess_what()
         infinite_profit_loop = True
-        if self.main_result:
+        infinite_profit_loop_counter = 0
+        if self.analyze.main_result:
+            print 'Bitcoin will be high!'
+            # self.buy_bitcoins()
             while(infinite_profit_loop):
                 profit = (self.bitcoin_bought_price * self.bitcoin_bought_amount) + (self.bitcoin_bought_price * self.bitcoin_bought_amount) * 0.4
-                if self.get_now_ask_price() > profit:
-                    self.sell_bitcoins()
+                earn_money_amount = (self.analyze.get_now_ask_price() * self.bitcoin_bought_amount) + (self.analyze.get_now_ask_price() * self.bitcoin_bought_amount) * 0.4
+                print 'profit' + ' ' + str(profit)
+                if earn_money_amount > profit:
+                    print 'You earned money yo bitch!'
+                    # self.sell_bitcoins()
                     infinite_profit_loop = False
                 else:
+                    'Still Waiting!'
+                    infinite_profit_loop_counter += 1
+                    if infinite_profit_loop_counter == 10:
+                        if self.bitcoin_bought_price > self.analyze.get_now_ask_price():
+                            print 'sorry Wrong Guess!'
+                            self.analyze.send_new_rank()
                     time.sleep(60)
 
 
     def buy_bitcoins(self):
+        self.bitcoin_bought_price = self.analyze.get_now_ask_price()
         money_amount = self._btcturk.balance()['money_available']
         self._btcturk.buy(price=money_amount)
+        time.sleep(60)
+        self.bitcoin_bought_amount = self._btcturk.balance()['bitcoin_available']
+        print 'Bought Bitcoin' + ' ' + str(self.bitcoin_bought_amount)
 
 
     def sell_bitcoins(self):
         bitcoin_amount = self._btcturk.balance()['bitcoin_available']
+        print 'Sold Bitcoin' + ' ' + str(bitcoin_amount)
         self._btcturk.sell(amount=bitcoin_amount)
-
-
-
+        time.sleep(60)
+        self.bitcoin_bought_amount = self._btcturk.balance()['bitcoin_available']
 
 
 
 def main():
-    pass
+    robot = robot_investor()
+    while(True):
+        print 'Theater Start!'
+        robot.theater_stage()
 
 if __name__ == "__main__":
     main()
