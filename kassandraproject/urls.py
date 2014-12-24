@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^twitter/', include('twitter.urls')),
     url(r'^member/', include('member.urls')),
+    url(r'^sorry/$', 'kassandraproject.views.succes_url'),
     url(r'^bitcoin_analyze/', include('bitcoin_analyze.urls')),
 )

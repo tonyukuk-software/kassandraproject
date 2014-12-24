@@ -24,7 +24,7 @@ def new_member(request):
             member_user_auth.is_active= False
             member_user_auth.save()
             return HttpResponseRedirect('/accounts/login/')
-    return render_to_response('new_member.html', {'form': form}, context_instance=RequestContext(request))
+    return render_to_response('new_member.html', locals(), context_instance=RequestContext(request))
 
 @login_required
 def member_profile(request):
@@ -34,3 +34,9 @@ def member_profile(request):
     except Exception as e:
         print e
         return HttpResponseRedirect('/sorry')
+
+def success_url(request):
+    pass
+
+def payment_page(request):
+    pass
