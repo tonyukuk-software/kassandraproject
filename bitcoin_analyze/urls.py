@@ -1,4 +1,5 @@
 __author__ = 'cemkiy'
+__author__ = 'barisariburnu'
 
 from django.conf.urls import patterns, url
 from member import views

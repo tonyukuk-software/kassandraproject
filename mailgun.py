@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 __author__ = 'cemkiy'
+__author__ = 'barisariburnu'
 # Unicode - Django
 import os
 

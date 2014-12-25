@@ -1,4 +1,6 @@
 __author__ = 'cemkiy'
+__author__ = 'barisariburnu'
+
 # Imports
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, render_to_response

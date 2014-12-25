@@ -1,3 +1,6 @@
+__author__ = 'cemkiy'
+__author__ = 'barisariburnu'
+
 from django.shortcuts import render, render_to_response
 from bitcoin_analyze.analyze import analyze
 from models import *

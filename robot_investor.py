@@ -1,6 +1,7 @@
 import time
 
 __author__ = 'cemkiy'
+__author__ = 'barisariburnu'
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Unicode - Django

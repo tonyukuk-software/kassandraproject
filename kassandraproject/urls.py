@@ -1,3 +1,6 @@
+__author__ = 'cemkiy'
+__author__ = 'barisariburnu'
+
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
@@ -11,6 +14,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^twitter/', include('twitter.urls')),
     url(r'^member/', include('member.urls')),
-    url(r'^sorry/$', 'kassandraproject.views.succes_url'),
     url(r'^bitcoin_analyze/', include('bitcoin_analyze.urls')),
 )

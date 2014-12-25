@@ -1,6 +1,8 @@
 from django.db import models
 from kassandraproject import settings
 __author__ = 'cemkiy'
+__author__ = 'barisariburnu'
+
 # Create your models here.
 
 class Rank(models.Model):
