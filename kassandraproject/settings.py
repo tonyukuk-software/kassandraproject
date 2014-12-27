@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'south',
     'kassandra',
     'bitcoin_analyze',
+    'kassandraproject',
     'member',
     'twython',
 )
@@ -117,3 +118,6 @@ TEMPLATE_DIRS = (
 ADMINS = (
     ('cemkiy', 'se.cemkiy@gmail.com'),
     ('barisariburnu', 'barisariburnu@gmail.com'),)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '2525'
