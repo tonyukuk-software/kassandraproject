@@ -3,7 +3,16 @@
 
 {% block head_block %} {% endblock %}
 
-{% block body_block %} {% endblock %}
+{% block body_block %}
+    {% if not request.user.username %}
+        <a href="/accounts/login" class="button">Login</a><br/>
+        <a href="/member/new_member" class="button">Sign Up</a>
+    {% else %}
+        <a href="/member/member_profile" class="button">Member Profile</a><br/>
+        <a href="/accounts/password_change" class="button">Edit Profile</a><br/>
+        <a href="/accounts/logout" class="button">Logout</a>
+    {% endif %}
+{% endblock %}
 
 {% block quote_section_block %}
     	<!-- BEGIN FOOTER CALLOUT SECTION

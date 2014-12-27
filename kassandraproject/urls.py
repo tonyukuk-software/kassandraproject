@@ -23,4 +23,6 @@ urlpatterns = patterns('',
         {'template_name': 'login.html'}),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout',
         {'next_page': '/'}),
+    url(r'^accounts/password_change/$', 'django.contrib.auth.views.password_change'),
+    url(r'^accounts/change-password-done/$', 'django.contrib.auth.views.password_change_done'),
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
