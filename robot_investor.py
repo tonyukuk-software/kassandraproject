@@ -17,6 +17,7 @@ class robot_investor:
 
     def theater_stage(self):
         self.analyze.guess_what()
+        print self.analyze.get_now_ask_price()
         infinite_profit_loop = True
         infinite_profit_loop_counter = 0
         if self.analyze.main_result:
@@ -38,6 +39,8 @@ class robot_investor:
                             print 'sorry Wrong Guess!'
                             self.analyze.send_new_rank()
                     time.sleep(60)
+        else:
+            time.sleep(120)
 
 
     def buy_bitcoins(self):

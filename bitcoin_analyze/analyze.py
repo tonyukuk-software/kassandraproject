@@ -1,6 +1,6 @@
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kassandraproject.settings")
-from twitter.views import get_tweets_by_param
+from twitter.views import twython_api
 from bitcoin_analyze.models import Rank, Expected_Value, Volume, Change, Change_Rate
 from btcturk_client.client import Btcturk
 import urllib2
@@ -105,6 +105,34 @@ class analyze:
         else:
             wrong_list.append(self.change_rate)
 
+
+        for element in wrong_list:
+            if element == self.twitter:
+                if old_rank.twitter <= 0:
+                    wrong_list.remove(self.twitter)
+                else:
+                    set_new_ranks.twitter = old_rank.twitter - 2
+            elif element == self.expected_value:
+                if old_rank.expected_value <= 0:
+                    wrong_list.remove(self.expected_value)
+                else:
+                    set_new_ranks.expected_value = old_rank.expected_value - 2
+            elif element == self.volume:
+                if old_rank.volume <= 0:
+                    wrong_list.remove(self.volume)
+                else:
+                    set_new_ranks.volume = old_rank.volume - 2
+            elif element == self.change:
+                if old_rank.change <= 0:
+                    wrong_list.remove(self.change)
+                else:
+                    set_new_ranks.change = old_rank.change - 2
+            else:
+                if old_rank.change_rate <= 0:
+                    wrong_list.remove(self.change_rate)
+                else:
+                    set_new_ranks.change_rate = old_rank.change_rate - 2
+
         distribution_points = (2 * len(wrong_list)) / len(right_list)
         for element in right_list:
             if element == self.twitter:
@@ -118,17 +146,7 @@ class analyze:
             else:
                 set_new_ranks.change_rate = old_rank.change_rate + distribution_points
 
-        for element in wrong_list:
-            if element == self.twitter:
-                set_new_ranks.twitter = old_rank.twitter - 2
-            elif element == self.expected_value:
-                set_new_ranks.expected_value = old_rank.expected_value - 2
-            elif element == self.volume:
-                set_new_ranks.volume = old_rank.volume - 2
-            elif element == self.change:
-                set_new_ranks.change = old_rank.change - 2
-            else:
-                set_new_ranks.change_rate = old_rank.change_rate - 2
+
 
         try:
             set_new_ranks.save()
@@ -137,7 +155,8 @@ class analyze:
 
 
     def guess_twitter(self):
-        tweet_list = get_tweets_by_param('bitcoin', 5)
+        t_api = twython_api()
+        tweet_list = t_api.search(word='bitcoin', type='mixed', max=5)
         positive_counter = 0
         negative_counter = 0
         m = HostedModel('sample.sentiment')
@@ -235,4 +254,4 @@ class analyze:
         return result
 
 # a = analyze()
-# a.guess_twitter()
+# print a.guess_twitter()
