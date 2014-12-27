@@ -19,4 +19,8 @@ urlpatterns = patterns('',
     url(r'^member/', include('member.urls')),
     url(r'^bitcoin_analyze/', include('bitcoin_analyze.urls')),
     url(r'^$', 'kassandraproject.views.home_page', name='home'),
+     url(r'^accounts/login/$', 'django.contrib.auth.views.login',
+        {'template_name': 'login.html'}),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout',
+        {'next_page': '/'}),
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

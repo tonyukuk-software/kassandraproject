@@ -452,7 +452,7 @@ if ( typeof window['vc_slidersBehaviour'] !== 'function' ) {
 					nextText: 'Next' // Next directionNav text
 				});
 			}
-			else if ( this_element.hasClass('wpb_flexslider') && 1==2) { 
+			else if ( this_element.hasClass('wpb_flexslider') && 1==2) {
 			}
 			else if ( this_element.hasClass('wpb_image_grid') ) {
 				var isotope = this_element.find('.wpb_image_grid_ul');
