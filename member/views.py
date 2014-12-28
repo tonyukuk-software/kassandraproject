@@ -1,5 +1,5 @@
 from member.coinbase_api import coinbase_api
-from member.models import Member_Pay
+from member.models import Member_Pay, Activation
 
 __author__ = 'cemkiy'
 __author__ = 'barisariburnu'
@@ -11,7 +11,7 @@ from django.template import RequestContext, Context
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from member.forms import *
-
+import uuid
 
 # Create your views here.
 def new_member(request):
@@ -29,6 +29,14 @@ def new_member(request):
             member_user_auth.is_staff = False
             member_user_auth.is_active = False
             member_user_auth.save()
+
+            member = User.objects.filter(username=username)[0]
+            code = str(uuid.uuid4())
+            activation = Activation.objects.create(activivation_code=code, user=member)
+            activation.save()
+
+            # TODO send activation code to user __author__ = 'barisariburnu'
+
             return HttpResponseRedirect('/accounts/login/')
     return render_to_response('new_member.html', locals(), context_instance=RequestContext(request))
 
@@ -116,3 +124,20 @@ def success_url(request, order_id, package_id):
 
 def cancel_url(request):
     return render_to_response('cancel_url.html', locals())
+
+
+def user_activation(request, identity):
+    try:
+        active = Activation.objects.filter(activivation_code=identity)[0]
+        user = User.objects.filter(id=active.user.id)[0]
+    except:
+        return HttpResponseRedirect('/sorry')
+    try:
+        if user:
+            user.is_active = True
+            user.is_staff = True
+            user.save()
+            active.delete()
+            return HttpResponseRedirect('/accounts/login/')
+    except:
+        return HttpResponseRedirect('/sorry')

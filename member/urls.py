@@ -11,4 +11,5 @@ urlpatterns = patterns('',
                         url(r'^payment_page/(.+)$', 'member.views.payment_page'),
                         url(r'^success_url/$', 'member.views.success_url'),
                         url(r'^cancel_url/$', 'member.views.cancel_url'),
+                        url(r'^user_activation/(.+)$', 'member.views.user_activation'),
                         )

@@ -16,3 +16,8 @@ class Member_Pay(models.Model):
     package = models.CharField(max_length=3, default='1')
     pay_amount = models.FloatField(default=0)
     pay_date = models.DateTimeField(auto_now_add=True)
+
+
+class Activation(models.Model):
+    activivation_code = models.CharField(max_length=36, null=True)
+    user = models.ForeignKey(User)
