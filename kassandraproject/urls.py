@@ -32,4 +32,5 @@ urlpatterns = patterns('',
         {'post_reset_redirect': '/accounts/password/done/'}),
     url(r'^accounts/password/done/$', 'django.contrib.auth.views.password_reset_complete'),
     url(r'^pricing_table/$', 'kassandraproject.views.pricing_table'),
+    url(r'^terms/$', 'kassandraproject.views.terms'),
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

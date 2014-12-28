@@ -19,3 +19,6 @@ def home_page(request):
 
 def pricing_table(request):
     return render_to_response('pricing_table.html', locals(), context_instance=RequestContext(request))
+
+def terms(request):
+    return render_to_response('terms.html', locals(), context_instance=RequestContext(request))
