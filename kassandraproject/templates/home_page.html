@@ -3,6 +3,24 @@
 
 {% block head_block %} {% endblock %}
 
+{% block page_callout %}
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+                <div class="breadcrumbs">You are here:
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span6">
+                <div class="page-name">Home	</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block body_block %}
     {% if not request.user.username %}
         <a href="/accounts/login" class="button">Login</a><br/>
