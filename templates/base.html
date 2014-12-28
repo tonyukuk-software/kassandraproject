@@ -3,7 +3,8 @@
 <html lang="en-US">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title>Kassandra Project | This Project is a Legal</title>  
+    <title>Kassandra Project | This Project is a Legal</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,15 +40,17 @@
 		<div class="page-container ">
 		
 		<div class="preloader"></div>
-	
+
 		<div class="mobile-nav-container">
 			<div class="mobile-nav-bar">
-			    <button type="button" class="btn-mobile-nav" data-toggle="collapse" data-target="#mobile-nav"><i class="fa fa-align-justify"></i></button>
+			    <button type="button" class="btn-mobile-nav" data-toggle="collapse" data-target="#mobile-nav">
+                    <i class="fa fa-align-justify"></i>
+                </button>
 		
 				<!-- Mobile Logo -->
-								<div class="mobile-logo">
+				<div class="mobile-logo">
 					<a href="/">
-						<img src="{% static 'img/logo.jpg' %}" alt=""/>
+						<img src="{% static 'img/logo.png' %}" alt=""/>
 					</a>
 				</div>
 								
@@ -56,23 +59,10 @@
 			<!-- Mobile Drop Down -->
 			<div id="mobile-nav" class="collapse">
 				<ul>
-									   <li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../buttons/index.html">Buttons</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../icons/index.html">Icons</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../columns/index.html">Columns</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../team-element/index.html">Team Element</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../progress-bars/index.html">Progress Bars</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../tabs-and-toggles/index.html">Tabs and Toggles</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../pricing-table/index.html">Pricing Table</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../typography/index.html">Typography</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../alerts/index.html">Alerts</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../videos/index.html">Videos</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../google-maps/index.html">Google Maps</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../testimonials/index.html">Testimonials</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../gallery-slider/index.html">Gallery Slider</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../call-to-action/index.html">Call to action</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../tour-section/index.html">Tour Section</a></li>
-<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../dividers/index.html">Dividers</a></li>
-				</ul>
+					<li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../buttons/index.html">Buttons</a></li>
+                    <li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../icons/index.html">Icons</a></li>
+                    <li class="  menu-item menu-item-type-post_type menu-item-object-page"><a href="../columns/index.html">Columns</a></li>
+                </ul>
 			</div>
 		</div>
 		
@@ -120,7 +110,7 @@
 							<ul class="navigation right">
 								
 								<!-- Logo -->
-																<li class="nav-logo float-left"><a href="/"><img src="{% static 'img/logo.jpg' %}" alt=""/></a></li>
+																<li class="nav-logo float-left"><a href="/"><img src="{% static 'img/logo.png' %}" alt=""/></a></li>
 																
 								<!-- Navigation Menu -->
 								<li class="  menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown"><a href="#">Home</a>
@@ -403,46 +393,43 @@
 
 
 </div>
-
-	<script>
-
+<script>
 	// Adjust size for full width portfolio
 	jQuery(document).ready(function() {
 		var width = jQuery(document).width();
 		var offset = jQuery( '.content-container .container' ).offset().left;
-		
+
 		jQuery( '.full-width-portfolio' ).css("width", width);
 		jQuery( '.full-width-portfolio' ).css("margin-left", "-"+offset+"px");
-		
+
 		jQuery(window).resize(function() {
 		var width = jQuery(document).width();
 		var offset = jQuery( '.content-container .container' ).offset().left;
 						jQuery( '.full-width-portfolio' ).css("width", width);
 						jQuery( '.full-width-portfolio' ).css("margin-left", "-"+offset+"px");
 		});
-		
+
 		jQuery(".styleswitch").click(function() {
 		var width = jQuery(document).width();
 		var offset = jQuery( '.content-container .container' ).offset().left;
 						jQuery( '.full-width-portfolio' ).css("width", width);
 						jQuery( '.full-width-portfolio' ).css("margin-left", "-"+offset+"px");
 		});
-		
+
 	});
-	
-	jQuery(window).load(function() { 
+
+	jQuery(window).load(function() {
 		jQuery('.full-width-portfolio').css('opacity', '1');
 	});
-	
+
 	</script>
-	
+
 		<script>
 	jQuery(document).ready(function() {
-
 		//var height = jQuery('.header').height();
-		
+
 		//jQuery('.layer-slider').css('padding-top', height+'px');
-		
+
 	});
 	</script>
 		<script>
@@ -450,25 +437,24 @@
 	"use strict";
 	jQuery('.widget-slider .flexslider').flexslider({
 		animation: "slide",
-		slideshow: "true", 
+		slideshow: "true",
 		slideshowSpeed: 5000,
-		animationSpeed: 500, 
-		easing: "swing", 
-		directionNav: true 
+		animationSpeed: 500,
+		easing: "swing",
+		directionNav: true
 		});
 	});
 	</script>
 		<script>
 	jQuery(document).ready(function() {
-
-	// Check if Mobile or Tablet device  
+	// Check if Mobile or Tablet device
 	function is_touch_device() {
-		return !!('ontouchstart' in window) // works on most browsers 
+		return !!('ontouchstart' in window) // works on most browsers
 		|| !!('onmsgesturechange' in window); // works on ie10
 	};
-    
+
 	// If touch device, disable transforms.
-	if (is_touch_device() && jQuery(window).width() < 800) { 
+	if (is_touch_device() && jQuery(window).width() < 800) {
 		var bubu = {
 			animationEngine: 'best-available',
 			filter: '',
@@ -477,7 +463,7 @@
 			transformsEnabled: false,
 			layoutMode: 'masonry'
 		};
-		
+
      } else {
 	     var bubu = {
 		     animationEngine: 'best-available',
@@ -492,7 +478,7 @@
 				duration: 5000			}
 		};
 	}
-	
+
 	// Settings for the grid
     jQuery(function(){
 	    var $container = jQuery('.isotope'),
@@ -500,7 +486,7 @@
 	    isotopeOptions = {},
 	    // defaults, used if not explicitly set in hash
 	    defaultOptions = bubu;
-	    
+
 	    var setupOptions = jQuery.extend( {}, defaultOptions, {
 		    itemSelector : '.isotope-post',
 		    masonry: {
@@ -508,9 +494,8 @@
 			    columnWidth: 1
 			   }
 		});
-
     	$container.infinitescroll({
-       		navSelector  : '.isotope-loadmore',    // selector for the paged navigation 
+       		navSelector  : '.isotope-loadmore',    // selector for the paged navigation
 	       	nextSelector : '.isotope-loadmore a',  // selector for the NEXT link (to page 2)
 		    itemSelector : '.isotope-post',     // selector for all items you'll retrieve
 	        behavior : 'twitter',
@@ -521,7 +506,7 @@
         },
         // call Isotope as a callback
         function( newElements ) {
-        
+
 		var $newElems = jQuery(newElements);
 		$newElems.css("opacity","0");
 		$newElems.imagesLoaded(function(){
@@ -529,32 +514,32 @@
 			jQuery(".post").css("opacity","1");
 			$container.isotope('appended', $newElems );
 		});
-		
+
 		// LoadMore Callback scripts
 		// =========================================
 		jQuery('.isotope-loadmore a').text("Load more");
-		
+
 		// Post Like
   		jQuery.getScript("../static/js/post-like.html");
-  		
+
   		// Slider
-  		
+
         jQuery('.widget-slider .flexslider').flexslider({
 		animation: "slide",
-		slideshow: "false", 
+		slideshow: "false",
 		slideshowSpeed: 800,
-		animationSpeed: 600, 
-		easing: "swing", 
-		directionNav: false 
+		animationSpeed: 600,
+		easing: "swing",
+		directionNav: false
 		});
-	    
+
 	    // Video Player
 		jQuery('div[data-video-id]').each(function(){
 		   	var videoid = jQuery(this).attr('data-video-id');
 		    var videoposter = jQuery(this).attr('data-video-poster');
 		    var videourl = jQuery(this).attr('data-video-url');
 		    var videoheight = jQuery(this).attr('data-video-height');
-		 
+
 			jQuery(this).jPlayer({
 		     ready: function () {
 		       jQuery(this).jPlayer("setMedia", {
@@ -569,16 +554,16 @@
 		     swfPath: "http://www.jplayer.org/latest/js/Jplayer.swf",
 		     supplied: "m4v",
 		     size: { width: "100%", height: ""+videoheight+""}
-		     
-		   }); 
-		       
+
+		   });
+
 		});
-		
+
 		// Audio Player
 		jQuery('div[data-audio-id]').each(function(){
 			var audioid = jQuery(this).attr('data-audio-id');
 			var audiourl = jQuery(this).attr('data-audio-url');
-			
+
 		       jQuery(this).jPlayer({
 		         ready: function () {
 		           jQuery(this).jPlayer("setMedia", {
@@ -593,19 +578,19 @@
 		         supplied: "m4a"
 		       });
 		 });
-		     
+
 		//
-	        
+
         }
-          
+
       );
-      
+
 	// set up Isotope
 	$container.isotope( setupOptions );
 	var $optionSets = jQuery('.category-filter').find('li'),
 	isOptionLinkClicked = false;
-	
-  
+
+
 	// switches selected class on buttons
 	function changeSelectedLink( $elem ) {
 		// remove selected class on previous item
@@ -613,7 +598,7 @@
 		// set selected class on new item
 		$elem.addClass('selected');
 	}
-  
+
 	$optionSets.find('a').click(function(){
 		var $this = jQuery(this);
 		// don't proceed if already selected
@@ -631,18 +616,17 @@
 		// set hash, triggers hashchange on window
 		jQuery.bbq.pushState( isotopeOptions );
 		isOptionLinkClicked = true;
-      
-		if (jQuery(window).width() <= 480) {  
+
+		if (jQuery(window).width() <= 480) {
 			jQuery('#nav-collapse').removeClass('in');
 			jQuery('#nav-collapse').css('height','0');
 		}
         return false;
     });
-    
+
     	$container.imagesLoaded( function(){
 		  $container.isotope('reLayout');
 		});
-
     var hashChanged = false;
     jQuery(window).bind( 'hashchange', function( event ){
 	    // get options object from hash
@@ -655,7 +639,7 @@
 	    $container.isotope( options );
 	    // save options
 	    isotopeOptions = hashOptions;
-	    
+
 	    // if option link was not clicked
         // then we'll need to update selected links
         if ( !isOptionLinkClicked ) {
@@ -672,7 +656,7 @@
 		        changeSelectedLink( $selectedLink );
 		    }
 		}
-		
+
 		isOptionLinkClicked = false;
 		hashChanged = true;
 	})
@@ -680,7 +664,6 @@
     .trigger('hashchange');
     });
     });
-    
 
 	</script>
 		<script>
@@ -707,11 +690,11 @@
 	jQuery('.mobile-nav-container .dropdown').click(function() {
     	jQuery('.sub-menu', this).slideToggle(300);
     });
-    
+
     jQuery(function($) {
-		jQuery(".dropdown").children("a").attr('href', "javascript:void(0)"); 
+		jQuery(".dropdown").children("a").attr('href', "javascript:void(0)");
     });
-    
+
 	</script>
 		<script>
 	jQuery(document).ready(function() {
@@ -719,49 +702,43 @@
 	});
 	</script>
 		<script>
-	
+
 		jQuery(document).ready(function(){
     jQuery('#viewport').infinitecarousel('#previous', '#next');
-
     function slide(){
       jQuery('#next').click();
     }
-
     //Launch the scroll every 2 seconds
     var intervalId = window.setInterval(slide, 2000);
-
-
     });
-		
+
 		jQuery(window).load(function() {
 			jQuery('.parallax-bg').parallax("50%", -0.3);
 		});
-
 		// Remove Empty <p> tags
 		jQuery(document).ready(function() {
 			jQuery( 'p:empty' ).remove();
 		});
-		
+
 		// Load More Button
 		jQuery('.isotope-loadmore a').click(function() {
 			jQuery('.isotope-loadmore a').text("Loading...");
-			
+
 		});
-		
+
 		// Append arrows to dropdowns
 		jQuery( ".dropdown > a" ).prepend( "<i class='fa fa-angle-down'></i>");
-
 	    // Animate rainbow bars
-		jQuery('.dropdown').each(function(){ 
+		jQuery('.dropdown').each(function(){
 			var width = jQuery(this).width();
-			
+
 			jQuery('.sub-menu-arrow', this).css('margin-left', (width/2.6));
-			
+
 		});
-		
+
 		// Animate rainbow bars
 		var delay = 0;
-		jQuery('.rainbow-bar *').each(function(){ 
+		jQuery('.rainbow-bar *').each(function(){
 		    jQuery(this).delay(delay).animate({
 		        opacity:1,
 		        height: "100%",
@@ -769,39 +746,35 @@
 		    },200);
 		    delay += 200;
 		});
-		
-		
+
+
 		// Make navigation smaller on scroll
 		jQuery(document).scroll(function(){
 		    if(jQuery(window).scrollTop() > 200)
-		    {   
+		    {
 		        jQuery('.header').addClass("header-scrolled");
 		    }
-
 		});
-		
-		
+
+
 		jQuery(document).scroll(function(){
 		    if(jQuery(window).scrollTop() < 150)
 		    {
 		    	jQuery('.header').removeClass("header-scrolled");
 		    }
-
 		});
-
         // Isotope preloader animation
     	jQuery(window).load(function(){
 			 jQuery('.isotope-preloader').css("display", "none");
 			 jQuery('.isotope').css("opacity", "1");
 		});
-		
+
 		// Hide slider content on scroll
         var divs = jQuery('.ls-s-1');
 		jQuery(window).on('scroll', function() {
 		   var st = jQuery(this).scrollTop();
 		   divs.css({ 'opacity' : (1 - st/280) });
 		});
-		
 
 		jQuery('.vc-counter-number').each(function() {
 				counter_number = jQuery(this).attr("counter-number")
@@ -811,14 +784,11 @@
 				});
 		});
 
-		
 		jQuery('.vc-counter-number').each(function() {
-
 			jQuery(this).waypoint({
 				offset: 'bottom-in-view',
 			  handler: function() {
 			    counter_number = jQuery(this).attr("counter-number")
-
 				jQuery(this).numAnim({
 				    endAt: counter_number,
 				    duration: 2
@@ -826,14 +796,13 @@
 			  }
 			});
 		});
-		
-		jQuery('.header').waypoint('sticky');
-		
 
-		
+		jQuery('.header').waypoint('sticky');
+
+
 	</script>
-	
-	
+
+
 <script type='text/javascript' src="{% static 'plugins/contact-form-7/includes/js/jquery.form.mina207.js' %}"></script>
 <script type='text/javascript' src="{% static 'plugins/contact-form-7/includes/js/scriptse248.js' %}"></script>
 <script type='text/javascript' src="{% static 'assets/js/jquery.flexslider-minf39e.js' %}"></script>

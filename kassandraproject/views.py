@@ -16,3 +16,6 @@ def sorry(request):
 
 def home_page(request):
     return render_to_response('home_page.html', locals(), context_instance=RequestContext(request))
+
+def pricing_table(request):
+    return render_to_response('pricing_table.html', locals(), context_instance=RequestContext(request))
