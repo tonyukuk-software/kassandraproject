@@ -105,7 +105,7 @@ def success_url(request, order_id, package_id):
                 pay_amount = 30
 
             try:
-                user = User.objects.filter(id=order_id)
+                user = User.objects.filter(id=order_id)[0]
                 member_pay = Member_Pay(user=user, package=clean_package_id, pay_amount=pay_amount)
                 member_pay.save()
                 return render_to_response('success_url.html', locals(), context_instance=RequestContext(request))
