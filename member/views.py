@@ -1,3 +1,6 @@
+from member.coinbase_api import coinbase_api
+from member.models import Member_Pay, Member_Package
+
 __author__ = 'cemkiy'
 __author__ = 'barisariburnu'
 
@@ -24,7 +27,7 @@ def new_member(request):
             email = request.POST.get('email')
             member_user_auth = User.objects.create_user(username, email, password)
             member_user_auth.is_staff = False
-            member_user_auth.is_active= False
+            member_user_auth.is_active = False
             member_user_auth.save()
             return HttpResponseRedirect('/accounts/login/')
     return render_to_response('new_member.html', locals(), context_instance=RequestContext(request))
@@ -33,7 +36,7 @@ def new_member(request):
 def member_profile(request):
     try:
         member = User.objects.filter(username=request.user.username)[0]
-        return render_to_response('member_profile.html', locals())
+        return render_to_response('member_profile.html', locals(), context_instance=RequestContext(request))
     except Exception as e:
         print e
         return HttpResponseRedirect('/sorry')
@@ -61,8 +64,54 @@ def edit_profile_photo(request):
 
     return render_to_response('edit_profile_photo.html', locals(), context_instance=RequestContext(request))
 
-def success_url(request):
-    pass
 
-def payment_page(request):
-    pass
+@login_required
+def payment_page_montly(request):
+    api = coinbase_api()
+    order_id = str(request.user.id) + '-' + '1'
+    button = api.create_button(amount='3', order_id=order_id)
+    button_data = button[0]
+    return render_to_response('payment_page.html', locals(), context_instance=RequestContext(request))
+
+
+@login_required
+def payment_page_yearly(request):
+    api = coinbase_api()
+    order_id = str(request.user.id) + '-' + '2'
+    button = api.create_button(amount='30', order_id=order_id)
+    button_data = button[0]
+    return render_to_response('payment_page.html', locals(), context_instance=RequestContext(request))
+
+
+@login_required
+def success_url(request, package_id):
+    clean_package_id = ''
+    for letter in str(clean_package_id):
+        if letter == '?':
+            clean_package_id = int(clean_package_id)
+            break
+        else:
+            clean_package_id += letter
+
+    api = coinbase_api()
+    coinbase_order = api.get_order_by_id(clean_package_id)
+
+    if coinbase_order:
+        print coinbase_order[2]
+        if str(coinbase_order[2]) == 'Status.complete': #control for payment
+            if clean_package_id == 1:
+                pay_amount = 3
+            else:
+                pay_amount = 30
+
+            try:
+                member_pay = Member_Pay(user=request.user, package=package_id, pay_amount=pay_amount)
+                member_pay.save()
+                return render_to_response('success_url.html', locals(), context_instance=RequestContext(request))
+            except Exception as e:
+                print e
+                return HttpResponseRedirect('/sorry')
+
+
+def cancel_url(request):
+    return render_to_response('cancel_url.html', locals())

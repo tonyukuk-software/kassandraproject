@@ -14,7 +14,7 @@ __author__ = 'cemkiy'
 
 class analyze:
     def __init__(self):
-        self._btcturk = Btcturk("54991feb7d7e11ae3c336333", "LEbkyPYfySnvP4AhiJa58TdROlw+TsYs")
+        self._btcturk = Btcturk("549fcaee7d7e119084b7c0ff", "juwISm8/zkvt+jwc19lBVKmY4sohbWv4")
         self.twitter = True
         self.expected_value = True
         self.volume = True

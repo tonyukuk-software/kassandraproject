@@ -50,7 +50,7 @@ INSTALLED_APPS = (
     'bitcoin_analyze',
     'kassandraproject',
     'member',
-    'twython',
+    'twitter',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,6 +96,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+FILE_UPLOAD_PERMISSIONS = 0644
 
 STATIC_URL = '/static/'
 
