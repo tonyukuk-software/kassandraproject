@@ -4,3 +4,7 @@ httplib2==0.8
 pyOpenSSL==0.13.1
 wsgiref==0.1.2
 twython==3.2.0
+hashids==0.8.4
+btcturk_client
+BeautifulSoup==3.2.1
+django-registration
