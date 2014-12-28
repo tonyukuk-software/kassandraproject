@@ -50,7 +50,7 @@ class coinbase_api:
             print e
             return False
 
-    def create_button(self, amount, order_id):
+    def create_button(self, amount, order_id, package_id):
         expected_button = CoinbasePaymentButton(
             id=str(order_id),
             name=str(order_id),
@@ -64,8 +64,8 @@ class coinbase_api:
             text='Pay With Bitcoin',
             type='buy_now',
             variable_price=False,
-            success_url='http://127.0.0.1:8000/bitcoin/success_url/' + str(order_id),
-            cancel_url='http://127.0.0.1:8000/bitcoin/cancel',
+            success_url='http://127.0.0.1:8000/member/success_url/' + str(order_id) + '/' + str(package_id),
+            cancel_url='http://127.0.0.1:8000/member/cancel',
         )
         button = self.account.create_button(expected_button)
         return button

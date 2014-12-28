@@ -1,5 +1,5 @@
 from member.coinbase_api import coinbase_api
-from member.models import Member_Pay, Member_Package
+from member.models import Member_Pay
 
 __author__ = 'cemkiy'
 __author__ = 'barisariburnu'
@@ -32,6 +32,7 @@ def new_member(request):
             return HttpResponseRedirect('/accounts/login/')
     return render_to_response('new_member.html', locals(), context_instance=RequestContext(request))
 
+
 @login_required
 def member_profile(request):
     try:
@@ -40,6 +41,7 @@ def member_profile(request):
     except Exception as e:
         print e
         return HttpResponseRedirect('/sorry')
+
 
 @login_required
 def edit_profile_photo(request):
@@ -66,27 +68,25 @@ def edit_profile_photo(request):
 
 
 @login_required
-def payment_page_montly(request):
+def payment_page(request, package_id):
+    if package_id == 1:
+        pay_amount = 3
+        redirect_url = 'montly'
+    else:
+        pay_amount = 30
+        redirect_url = 'yearly'
+
     api = coinbase_api()
-    order_id = str(request.user.id) + '-' + '1'
-    button = api.create_button(amount='3', order_id=order_id)
+    order_id = str(request.user.id)
+    button = api.create_button(amount=pay_amount, order_id=order_id, package_id=package_id)
     button_data = button[0]
     return render_to_response('payment_page.html', locals(), context_instance=RequestContext(request))
 
 
 @login_required
-def payment_page_yearly(request):
-    api = coinbase_api()
-    order_id = str(request.user.id) + '-' + '2'
-    button = api.create_button(amount='30', order_id=order_id)
-    button_data = button[0]
-    return render_to_response('payment_page.html', locals(), context_instance=RequestContext(request))
-
-
-@login_required
-def success_url(request, package_id):
+def success_url(request, order_id, package_id):
     clean_package_id = ''
-    for letter in str(clean_package_id):
+    for letter in str(package_id):
         if letter == '?':
             clean_package_id = int(clean_package_id)
             break
@@ -105,7 +105,8 @@ def success_url(request, package_id):
                 pay_amount = 30
 
             try:
-                member_pay = Member_Pay(user=request.user, package=package_id, pay_amount=pay_amount)
+                user = User.objects.filter(id=order_id)
+                member_pay = Member_Pay(user=user, package=clean_package_id, pay_amount=pay_amount)
                 member_pay.save()
                 return render_to_response('success_url.html', locals(), context_instance=RequestContext(request))
             except Exception as e:
