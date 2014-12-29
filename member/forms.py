@@ -18,5 +18,11 @@ class new_member_form(forms.ModelForm):
                    'user_permissions': forms.HiddenInput(),
                    }
 
+
 class edit_profile_photo_form(forms.Form):
-    profile_photo = forms.ImageField()
+    photo = forms.ImageField()
+
+
+class edit_profile_first_and_last_name_form(forms.Form):
+    first_name = forms.CharField(max_length=50, required=True)
+    last_name = forms.CharField(max_length=50, required=True)

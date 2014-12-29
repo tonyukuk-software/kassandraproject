@@ -23,17 +23,25 @@
 {% endblock %}
 
 {% block body_block %}
-    <ul>
-    {% if member.photo %}
-        <img data-retina="" src="/media/{{ member.photo }}" width="370">
-    {% else %}
-        <img data-retina="" src="/media/profile_photos/default.png" width="370">
+   <ul>
+    {% if form.errors %}
+        <p>Error</p>
     {% endif %}
-    <li>{{ request.user.username }}</li>
-    <li>{{ request.user.first_name }}</li>
-    <li>{{ request.user.last_name }}</li>
-    <li>{{ request.user.email }}</li>
-<a href="/member/edit_member_profile">edit profile</a>
+<form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border=1>
+        {{ form_profile_photo }}
+    </table>
+    <input type='submit' name="profile_photo" value='Submit'/>
+</form>
+
+<form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border=1>
+        {{ form_first_and_last_name }}
+    </table>
+    <input type='submit' name="name_form" value='Submit'/>
+</form>
 </ul>
 {% endblock %}
 

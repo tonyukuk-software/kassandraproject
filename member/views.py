@@ -1,5 +1,5 @@
 from member.coinbase_api import coinbase_api
-from member.models import Member_Pay, Activation
+from member.models import Member_Pay, Activation, Member
 
 __author__ = 'cemkiy'
 __author__ = 'barisariburnu'
@@ -46,7 +46,8 @@ def new_member(request):
 @login_required
 def member_profile(request):
     try:
-        member = User.objects.filter(username=request.user.username)[0]
+        if Member.objects.filter(user=request.user):
+            member = Member.objects.filter(user=request.user)[0]
         return render_to_response('member_profile.html', locals(), context_instance=RequestContext(request))
     except Exception as e:
         print e
@@ -54,27 +55,47 @@ def member_profile(request):
 
 
 @login_required
-def edit_profile_photo(request):
+def edit_member_profile(request):
     try:
-        member = User.objects.filter(username=request.user.username)[0]
+        if Member.objects.filter(user=request.user):
+            member = Member.objects.filter(user=request.user)[0]
+        else:
+            member = Member(user=request.user)
     except Exception as e:
         print e
         return HttpResponseRedirect('/sorry')
 
-    form = edit_profile_photo_form()
+    form_profile_photo = edit_profile_photo_form()
+    form_first_and_last_name = edit_profile_first_and_last_name_form(initial={'first_name': request.user.first_name,
+                                                                              'last_name': request.user.last_name})
 
-    if request.method == 'POST':
-        form = edit_profile_photo_form(request.POST, request.FILES)
-        if form.is_valid():
+    if request.method == 'POST' and 'profile_photo' in request.POST:
+        form_profile_photo = edit_profile_photo_form(request.POST, request.FILES)
+        if form_profile_photo.is_valid():
             try:
-                member.profile_photo = request.FILES["profile_photo"]
+                member.photo = request.FILES["photo"]
                 member.save()
+                print member.photo
                 return HttpResponseRedirect('/member/member_profile')
             except Exception as e:
                 print e
                 return HttpResponseRedirect('/sorry')
 
-    return render_to_response('edit_profile_photo.html', locals(), context_instance=RequestContext(request))
+    elif request.method == 'POST' and 'name_form' in request.POST:  # password form
+        form_first_and_last_name = edit_profile_first_and_last_name_form(request.POST)
+        if form_first_and_last_name.is_valid():
+                try:
+                    first_name = request.POST.get('first_name')
+                    last_name = request.POST.get('last_name')
+                    request.user.first_name = first_name
+                    request.user.last_name = last_name
+                    request.user.save()
+                    return HttpResponseRedirect('/member/member_profile')
+                except Exception as e:
+                    print e
+                    return HttpResponseRedirect('/sorry')
+
+    return render_to_response('edit_member_profile.html', locals(), context_instance=RequestContext(request))
 
 
 @login_required

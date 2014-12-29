@@ -29,4 +29,5 @@ urlpatterns = patterns('',
     url(r'', include('django.contrib.auth.urls')),
     url(r'^pricing_table/$', 'kassandraproject.views.pricing_table'),
     url(r'^terms/$', 'kassandraproject.views.terms'),
+    url(r'^sorry/$', 'kassandraproject.views.sorry'),
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
