@@ -10,7 +10,7 @@ from django.template import RequestContext, Context
 from django.http import HttpResponseRedirect, HttpResponse
 from forms import *
 from hashids import Hashids
-
+from mailgun import *
 
 # Create your views here.
 
@@ -42,7 +42,9 @@ def forgotten_password(request):
                 hashid = hashids.encrypt(member.username)
                 member.set_password(str(hashid))
                 if member:
-                    # TODO Send mail to user __author__ = 'barisariburnu'
+                    context = Context({'username': member.username, 'email': member.email, 'activation_code': str(hashid)})
+                    mailgun_operator = mailgun()
+                    mailgun_operator.send_mail_with_html(email_to=member.email, template_name='mail_user_activation.html', context=context, subject='Activation')
                     text_for_result = 'We are send your password to your email.'
                 else:
                     text_for_result = 'Wrong mail address.'
