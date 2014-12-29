@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block head_block %} {% endblock %}
+
+{% block page_callout %}
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+                <div class="breadcrumbs">You are here:
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                        <li>Pricing Table</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span6">
+                <div class="page-name">Pricing Table	</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_block %}
+Success Payment
+{% endblock %}
+
+{% block quote_section_block %} {% endblock %}
+
+{% block sub_footer_block %} {% endblock %}
+
+{% block script_block %} {% endblock %}
