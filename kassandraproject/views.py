@@ -29,6 +29,11 @@ def pricing_table(request):
 def terms(request):
     return render_to_response('terms.html', locals(), context_instance=RequestContext(request))
 
+
+def team(request):
+    return render_to_response('team.html', locals(), context_instance=RequestContext(request))
+
+
 def forgotten_password(request):
     text_for_result = ''
     form = forgotten_password_form()

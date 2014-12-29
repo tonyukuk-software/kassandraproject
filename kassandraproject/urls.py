@@ -31,4 +31,5 @@ urlpatterns = patterns('',
     url(r'^terms/$', 'kassandraproject.views.terms'),
     url(r'^contact_us/$', 'kassandraproject.views.contact_us'),
     url(r'^sorry/$', 'kassandraproject.views.sorry'),
+    url(r'^team/$', 'kassandraproject.views.team'),
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
