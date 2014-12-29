@@ -25,7 +25,9 @@ def new_member(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             email = request.POST.get('email')
-            member_user_auth = User.objects.create_user(username, email, password)
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            member_user_auth = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
             member_user_auth.is_staff = False
             member_user_auth.is_active = False
             member_user_auth.save()

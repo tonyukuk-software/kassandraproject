@@ -4,12 +4,18 @@ __author__ = 'barisariburnu'
 from django import forms
 from django.contrib.auth.models import User
 
-class new_member_form(forms.Form):
-    username = forms.CharField(max_length=30, widget=forms.TextInput)
-    email = forms.CharField(max_length=75, widget=forms.TextInput)
-    password = forms.CharField(max_length=15, widget=forms.PasswordInput())
-    first_name = forms.CharField(max_length=30, widget=forms.TextInput)
-    last_name = forms.CharField(max_length=30, widget=forms.TextInput)
+class new_member_form(forms.ModelForm):
+    class Meta:
+        model = User
+        widgets = {'password': forms.PasswordInput(),
+                   'last_login': forms.HiddenInput(),
+                   'is_superuser': forms.HiddenInput(),
+                   'is_staff': forms.HiddenInput(),
+                   'is_active': forms.HiddenInput(),
+                   'date_joined': forms.HiddenInput(),
+                   'groups': forms.HiddenInput(),
+                   'user_permissions': forms.HiddenInput(),
+                   }
 
 class edit_profile_photo_form(forms.Form):
     profile_photo = forms.ImageField()

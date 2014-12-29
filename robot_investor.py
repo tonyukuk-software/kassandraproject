@@ -24,6 +24,7 @@ class robot_investor:
             print 'Bitcoin will be high!'
             # self.buy_bitcoins()
             while(infinite_profit_loop):
+                print self.analyze.get_now_ask_price()
                 profit = (self.bitcoin_bought_price * self.bitcoin_bought_amount) + (self.bitcoin_bought_price * self.bitcoin_bought_amount) * 0.4
                 earn_money_amount = (self.analyze.get_now_ask_price() * self.bitcoin_bought_amount) + (self.analyze.get_now_ask_price() * self.bitcoin_bought_amount) * 0.4
                 print 'profit' + ' ' + str(profit)
@@ -32,7 +33,7 @@ class robot_investor:
                     # self.sell_bitcoins()
                     infinite_profit_loop = False
                 else:
-                    'Still Waiting!'
+                    print 'Still Waiting!'
                     infinite_profit_loop_counter += 1
                     if infinite_profit_loop_counter == 10:
                         if self.bitcoin_bought_price > self.analyze.get_now_ask_price():

@@ -7,7 +7,7 @@
 <body>
 <ul>
     {% if form.errors %}
-        <p>Error</p>
+        <p>{{ form.errors }}</p>
     {% endif %}
 <form method='POST'>
     {% csrf_token %}

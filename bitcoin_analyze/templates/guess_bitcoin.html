@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    btc guess : {{ btc_analyze.main_result }} </br>
-    twitter {{ btc_analyze.twitter }} </br>
-    expected_value {{ btc_analyze.expected_value }} </br>
-    volume {{ btc_analyze.volume }} </br>
-    change {{ btc_analyze.change }} </br>
-    change_rate {{ btc_analyze.change_rate }} </br>
-</body>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_block %} {% endblock %}
+
+{% block page_callout %}
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+                <div class="breadcrumbs">You are here:
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                        <li>Guess Bitcoin</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span6">
+                <div class="page-name">Guess Bitcoin	</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_block %}
+    btc guess : {{ btc_analyze.main_result|yesno:"Rise,Fall" }} </br>
+    twitter {{ btc_analyze.twitter|yesno:"Rise,Fall" }} </br>
+    expected_value {{ btc_analyze.expected_value|yesno:"Rise,Fall" }} </br>
+    volume {{ btc_analyze.volume|yesno:"Rise,Fall" }} </br>
+    change {{ btc_analyze.change|yesno:"Rise,Fall" }} </br>
+    change_rate {{ btc_analyze.change_rate|yesno:"Rise,Fall" }} </br>
+    {% if btc_analyze.main_result %}
+    <img src="{% static 'img/rise.png' %}">
+    {% else %}
+    <img src="{% static 'img/fall.png' %}">
+    {% endif %}
+
+
+{% endblock %}
 </html>
