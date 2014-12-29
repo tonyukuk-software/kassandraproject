@@ -115,11 +115,13 @@
 								<!-- Navigation Menu -->
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/">Home</a></li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/pricing_table">Pricing</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/terms">Terms</a></li>
                                 {% if not request.user.username %}
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/member/new_member">Sign Up</a></li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/accounts/login">Login</a></li>
                                 {% else %}
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/member/member_profile">Profile</a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/bitcoin_analyze/guess_bitcoin/">Guess Bitcoin</a></li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/accounts/logout">Logout</a></li>
                                 {% endif %}
 

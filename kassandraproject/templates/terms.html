@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_block %} {% endblock %}
+
+{% block page_callout %}
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+                <div class="breadcrumbs">You are here:
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                        <li>Pricing Table</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span6">
+                <div class="page-name">Pricing Table	</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_block %}
 1-This platform is make guess for exchange.
 2-If guesses will be wrong, we are not accept any responsibilities.
 3-We are not accept responsibilities about your losses or earnings.
 4-This is only information platform, not offical.
 5-Your payments are irrecoverable.
 6-Our some processes are hidden.
-</body>
-</html>
+{% endblock %}
+
+{% block quote_section_block %} {% endblock %}
+
+{% block sub_footer_block %} {% endblock %}
+
+{% block script_block %} {% endblock %}
