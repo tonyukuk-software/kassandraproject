@@ -42,9 +42,9 @@ def forgotten_password(request):
                 hashid = hashids.encrypt(member.username)
                 member.set_password(str(hashid))
                 if member:
-                    context = Context({'username': member.username, 'email': member.email, 'activation_code': str(hashid)})
+                    context = Context({'username': member.username, 'password': str(hashid)})
                     mailgun_operator = mailgun()
-                    mailgun_operator.send_mail_with_html(email_to=member.email, template_name='mail_user_activation.html', context=context, subject='Activation')
+                    mailgun_operator.send_mail_with_html(email_to=member.email, template_name='mail_forgotten_password.html', context=context, subject='Forgotten Password')
                     text_for_result = 'We are send your password to your email.'
                 else:
                     text_for_result = 'Wrong mail address.'
