@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from member.forms import *
 import uuid
+from mailgun import *
 
 # Create your views here.
 def new_member(request):
@@ -37,7 +38,9 @@ def new_member(request):
             activation = Activation.objects.create(activivation_code=code, user=member)
             activation.save()
 
-            # TODO send activation code to user __author__ = 'barisariburnu'
+            context = Context({'username': member.username, 'email': member.email, 'activation_code': code})
+            mailgun_operator = mailgun()
+            mailgun_operator.send_mail_with_html(email_to=member.email, template_name='mail_user_activation.html', context=context, subject='Activation')
 
             return HttpResponseRedirect('/accounts/login/')
     return render_to_response('new_member.html', locals(), context_instance=RequestContext(request))
