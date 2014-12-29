@@ -10,7 +10,7 @@
                 <div class="breadcrumbs">You are here:
                     <ul>
                         <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                        <li>Pricing Table</li>
+                        <li>Contact US</li>
                     </ul>
                 </div>
             </div>
@@ -23,7 +23,16 @@
 {% endblock %}
 
 {% block body_block %}
-Failure Payment
+{% if form.errors %}
+        <p>{{ form.errors }}</p>
+    {% endif %}
+<form method='POST'>
+    {% csrf_token %}
+    <table border=1>
+        {{ form }}
+    </table>
+    <input type='submit' value='Submit'/>
+</form>
 {% endblock %}
 
 {% block quote_section_block %} {% endblock %}

@@ -24,8 +24,8 @@
 
 {% block body_block %}
    <ul>
-    {% if form.errors %}
-        <p>Error</p>
+    {% if form_profile_photo.errors %}
+        <p>{{ form_profile_photo.errors }}</p>
     {% endif %}
 <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
@@ -35,6 +35,10 @@
     <input type='submit' name="profile_photo" value='Submit'/>
 </form>
 
+
+   {% if form_first_and_last_name.errors %}
+        <p>{{ form_first_and_last_name.errors }}</p>
+    {% endif %}
 <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     <table border=1>
