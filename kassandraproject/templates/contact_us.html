@@ -10,7 +10,7 @@
                 <div class="breadcrumbs">You are here:
                     <ul>
                         <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                        <li>Pricing Table</li>
+                        <li>Contact US</li>
                     </ul>
                 </div>
             </div>
@@ -23,30 +23,16 @@
 {% endblock %}
 
 {% block body_block %}
-   <ul>
-    {% if form_profile_photo.errors %}
-        <p>{{ form_profile_photo.errors }}</p>
+{% if form.errors %}
+        <p>{{ form.errors }}</p>
     {% endif %}
-<form method='POST' enctype="multipart/form-data">
+<form method='POST'>
     {% csrf_token %}
     <table border=1>
-        {{ form_profile_photo }}
+        {{ form }}
     </table>
-    <input type='submit' name="profile_photo" value='Submit'/>
+    <input type='submit' value='Submit'/>
 </form>
-
-
-   {% if form_first_and_last_name.errors %}
-        <p>{{ form_first_and_last_name.errors }}</p>
-    {% endif %}
-<form method='POST' enctype="multipart/form-data">
-    {% csrf_token %}
-    <table border=1>
-        {{ form_first_and_last_name }}
-    </table>
-    <input type='submit' name="name_form" value='Submit'/>
-</form>
-</ul>
 {% endblock %}
 
 {% block quote_section_block %} {% endblock %}

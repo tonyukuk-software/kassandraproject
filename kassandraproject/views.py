@@ -52,3 +52,22 @@ def forgotten_password(request):
                 print e
                 return HttpResponseRedirect('/sorry')
     return render_to_response('forgotten_password.html', locals(), context_instance=RequestContext(request))
+
+
+def contact_us(request):
+    form = contact_us_form()
+    if request.method == 'POST':
+        form = contact_us_form(request.POST)
+        if form.is_valid():
+            try:
+                subject = request.POST.get('subject')
+                email = request.POST.get('email')
+                name = request.POST.get('name')
+                message = request.POST.get('message')
+
+                mailgun_operator = mailgun()
+                mailgun_operator.send_mail('se.cemkiy@gmail.com', name + message + email, subject)
+            except Exception as e:
+                print e
+                return HttpResponseRedirect('/sorry')
+    return render_to_response('contact_us.html', locals(), context_instance=RequestContext(request))
