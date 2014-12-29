@@ -8,6 +8,7 @@ class new_member_form(forms.ModelForm):
     class Meta:
         model = User
         widgets = {'password': forms.PasswordInput(),
+                   'email': forms.EmailInput(),
                    'last_login': forms.HiddenInput(),
                    'is_superuser': forms.HiddenInput(),
                    'is_staff': forms.HiddenInput(),
