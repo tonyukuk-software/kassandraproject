@@ -9,6 +9,9 @@ class Member(models.Model):
     user = models.OneToOneField(User)
     photo = models.ImageField(null=True, blank=True, upload_to="profile_photos/")
 
+    def __unicode__(self):
+        return self.user.username
+
 
 # Keeps user's pay information
 class Member_Pay(models.Model):
@@ -17,7 +20,13 @@ class Member_Pay(models.Model):
     pay_amount = models.FloatField(default=0)
     pay_date = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+        return self.user.username
+
 
 class Activation(models.Model):
     activivation_code = models.CharField(max_length=36, null=True)
     user = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.user.username

@@ -1,7 +1,7 @@
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kassandraproject.settings")
 from twitter.views import twython_api
-from bitcoin_analyze.models import Rank, Expected_Value, Volume, Change, Change_Rate
+from bitcoin_analyze.models import Rank, Expected_Value, Volume, Change, Change_Rate, Twitter
 from btcturk_client.client import Btcturk
 import urllib2
 from BeautifulSoup import BeautifulSoup
@@ -160,15 +160,24 @@ class analyze:
         positive_counter = 0
         negative_counter = 0
         m = HostedModel('sample.sentiment')
+        result = True
         for tweet in tweet_list:
             if m.predict(tweet)['outputLabel'] == 'positive':
                 positive_counter += 1
             else:
                 negative_counter += 1
         if positive_counter > negative_counter:
-            return True
+            result = True
         else:
-            return False
+            result = False
+
+        try:
+            twitter = Twitter(processed_tweets_number=5, positive_tweet_number=positive_counter, negative_tweet_number=negative_counter, result=result)
+            twitter.save()
+        except Exception as e:
+            print e
+
+        return result
 
 
     def guess_expected_value(self):
@@ -201,7 +210,7 @@ class analyze:
         result = True
 
         if not volume_past:
-            return True
+            result = True
 
         if volume_now >= volume_past.volume_value:
             result = True
