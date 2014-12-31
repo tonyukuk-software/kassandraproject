@@ -3,38 +3,179 @@
 
 {% block head_block %} {% endblock %}
 
-{% block page_callout %}
-	<div class="container">
-		<div class="row">
-			<div class="span6">
-                <div class="breadcrumbs">You are here:
-                    <ul>
-                        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                        <li>Guess Bitcoin</li>
-                    </ul>
+{% block body_block %}
+<div class="span12">
+    <div id="post-2552" class="post-2552 page type-page status-publish hentry instock">
+        <div class="main-row wpb_row vc_row-fluid">
+            <div class="vc_span12 wpb_column column_container">
+                <div class="wpb_wrapper">
+                    <div class="empty-space"></div>
                 </div>
             </div>
-
-            <div class="span6">
-                <div class="page-name">Guess Bitcoin	</div>
+        </div>
+        <div class="main-row wpb_row vc_row-fluid">
+            <div class="vc_span12 wpb_column column_container">
+                <div class="wpb_wrapper">
+                    <div class="wpb_text_column wpb_content_element">
+                        <div class="wpb_wrapper">
+                            <h1 style="text-align: center;">GUESS BITCOIN</h1>
+                            <p style="text-align: center;">These guesses will be realized in maximum 10 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-row wpb_row vc_row-fluid">
+            <div class="vc_span12 wpb_column column_container">
+                <div class="wpb_wrapper">
+                    <div class="wpb_separator wpb_content_element"></div>
+                    <div class="empty-space"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-row wpb_row vc_row-fluid">
+            <div class="vc_span6 wpb_column column_container">
+                <div class="wpb_wrapper">
+                    <div class="wpb_accordion wpb_content_element  not-column-inherit" data-collapsible="no" data-active-tab="1">
+                        <div class="wpb_wrapper wpb_accordion_wrapper ui-accordion ui-widget ui-helper-reset" role="tablist">
+                            <div class="wpb_accordion_section group">
+                                <h3 class="wpb_accordion_header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all" role="tab" id="ui-accordion-1-header-0" aria-controls="ui-accordion-1-panel-0" aria-selected="false" aria-expanded="false" tabindex="-1">
+                                    <span id="twitter-span" class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+                                    <a id="twitter" href="#how-much-does-it-cost">Twitter Says: {{ btc_analyze.twitter|yesno:"Rise,Fall" }}</a>
+                                </h3>
+                                <div id="twitter-div" class="wpb_accordion_content ui-accordion-content clearfix ui-helper-reset ui-widget-content ui-corner-bottom" id="ui-accordion-1-panel-0" aria-labelledby="ui-accordion-1-header-0" role="tabpanel" aria-hidden="true" style="display: none;">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>Twitter is a powerful social platform. We are getting tweets about bitcoin and process them for positive or negative.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_accordion_section group">
+                                <h3 class="wpb_accordion_header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all" role="tab" id="ui-accordion-1-header-1" aria-controls="ui-accordion-1-panel-1" aria-selected="false" aria-expanded="false" tabindex="-1">
+                                    <span id="expected_value-span" class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+                                    <a id="expected_value" href="#is-support-included">Expected Value Says: {{ btc_analyze.expected_value|yesno:"Rise,Fall" }}</a>
+                                </h3>
+                                <div id="expected_value-div" class="wpb_accordion_content ui-accordion-content clearfix ui-helper-reset ui-widget-content ui-corner-bottom" id="ui-accordion-1-panel-1" aria-labelledby="ui-accordion-1-header-1" role="tabpanel" aria-hidden="true" style="display: none;">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>We are process high,low and last value for bitcoin. Then we are achieved expected value.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_accordion_section group">
+                                <h3 class="wpb_accordion_header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-accordion-header-active ui-state-active ui-corner-top" role="tab" id="ui-accordion-1-header-2" aria-controls="ui-accordion-1-panel-2" aria-selected="true" aria-expanded="true" tabindex="0">
+                                    <span id="change_rate-span" class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+                                    <a id="change_rate" href="#how-do-i-set-it-up">Change Rate Says: {{ btc_analyze.change_rate|yesno:"Rise,Fall" }}</a>
+                                </h3>
+                                <div id="change_rate-div" class="wpb_accordion_content ui-accordion-content clearfix ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" id="ui-accordion-1-panel-2" aria-labelledby="ui-accordion-1-header-2" role="tabpanel" aria-hidden="false" style="display: block;">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>We are calculated change amount about bitcoin for daily. If it is high or low certain value, we are show result.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_accordion_section group">
+                                <h3 class="wpb_accordion_header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all" role="tab" id="ui-accordion-1-header-1" aria-controls="ui-accordion-1-panel-1" aria-selected="false" aria-expanded="false" tabindex="-1">
+                                    <span id="volume-span" class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+                                    <a id="volume" href="#is-support-included">Volume Says: {{ btc_analyze.volume|yesno:"Rise,Fall" }}</a>
+                                </h3>
+                                <div id="volume-div" class="wpb_accordion_content ui-accordion-content clearfix ui-helper-reset ui-widget-content ui-corner-bottom" id="ui-accordion-1-panel-1" aria-labelledby="ui-accordion-1-header-1" role="tabpanel" aria-hidden="true" style="display: none;">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>Volume is buy or sell amount total about bitcoin. We are compared before values, and that is result.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="wpb_accordion_section group">
+                                <h3 class="wpb_accordion_header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all" role="tab" id="ui-accordion-1-header-1" aria-controls="ui-accordion-1-panel-1" aria-selected="false" aria-expanded="false" tabindex="-1">
+                                    <span id="change-span" class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+                                    <a id="change" href="#is-support-included">Change Says: {{ btc_analyze.change|yesno:"Rise,Fall" }}</a>
+                                </h3>
+                                <div id="change-div" class="wpb_accordion_content ui-accordion-content clearfix ui-helper-reset ui-widget-content ui-corner-bottom" id="ui-accordion-1-panel-1" aria-labelledby="ui-accordion-1-header-1" role="tabpanel" aria-hidden="true" style="display: none;">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>This is so simple value. We are getting bitcoin last value. And result is high or low before value.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vc_span6 wpb_column column_container">
+                <div class="wpb_wrapper">
+                    <div class="wpb_text_column wpb_content_element ">
+                        <div class="wpb_wrapper">
+                          {% if btc_analyze.main_result %}
+                            <img src="{% static 'img/rise.png' %}">
+                            {% else %}
+                            <img src="{% static 'img/fall.png' %}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-row wpb_row vc_row-fluid">
+            <div class="vc_span12 wpb_column column_container">
+                <div class="wpb_wrapper">
+                    <div class="empty-space"></div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#twitter").click(function () {
+                if ($("#twitter-div").css("display") == "none")
+                    $("#twitter-div").css("display","block");
+                else
+                    $("#twitter-div").css("display","none");
+            });
+
+            $("#expected_value").click(function () {
+                if ($("#expected_value-div").css("display") == "none")
+                    $("#expected_value-div").css("display","block");
+                else
+                    $("#expected_value-div").css("display","none");
+            });
+
+            $("#change_rate").click(function () {
+                if ($("#change_rate-div").css("display") == "none")
+                    $("#change_rate-div").css("display","block");
+                else
+                    $("#change_rate-div").css("display","none");
+            });
+
+            $("#volume").click(function () {
+                if ($("#volume-div").css("display") == "none")
+                    $("#volume-div").css("display","block");
+                else
+                    $("#volume-div").css("display","none");
+            });
+
+            $("#change").click(function () {
+                if ($("#change-div").css("display") == "none")
+                    $("#change-div").css("display","block");
+                else
+                    $("#change-div").css("display","none");
+            });
+        });
+    </script>
+
 {% endblock %}
 
-{% block body_block %}
-    btc guess : {{ btc_analyze.main_result|yesno:"Rise,Fall" }} </br>
-    twitter {{ btc_analyze.twitter|yesno:"Rise,Fall" }} </br>
-    expected_value {{ btc_analyze.expected_value|yesno:"Rise,Fall" }} </br>
-    volume {{ btc_analyze.volume|yesno:"Rise,Fall" }} </br>
-    change {{ btc_analyze.change|yesno:"Rise,Fall" }} </br>
-    change_rate {{ btc_analyze.change_rate|yesno:"Rise,Fall" }} </br>
-    {% if btc_analyze.main_result %}
-    <img src="{% static 'img/rise.png' %}">
-    {% else %}
-    <img src="{% static 'img/fall.png' %}">
-    {% endif %}
+{% block quote_section_block %} {% endblock %}
 
+{% block sub_footer_block %} {% endblock %}
+
+{% block script_block %}
 
 {% endblock %}
-</html>

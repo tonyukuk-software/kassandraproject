@@ -152,10 +152,6 @@ def cancel_url(request):
     return render_to_response('cancel_url.html', locals())
 
 
-def estimate(request):
-    return render_to_response('estimate.html', locals())
-
-
 def user_activation(request, identity):
     try:
         active = Activation.objects.filter(activivation_code=identity)[0]
