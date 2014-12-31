@@ -211,17 +211,18 @@ class analyze:
 
         if not volume_past:
             result = True
-
-        if volume_now >= volume_past.volume_value:
-            result = True
         else:
-            result = False
 
-        try:
-            new_volume = Volume(volume_value=volume_now, result=result)
-            new_volume.save()
-        except Exception as e:
-            print e
+            if volume_now >= volume_past.volume_value:
+                result = True
+            else:
+                result = False
+
+            try:
+                new_volume = Volume(volume_value=volume_now, result=result)
+                new_volume.save()
+            except Exception as e:
+                print e
 
         return result
 
