@@ -1,7 +1,6 @@
 import time
 
 __author__ = 'cemkiy'
-__author__ = 'barisariburnu'
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Unicode - Django
@@ -23,6 +22,8 @@ class robot_investor:
         if self.analyze.main_result:
             print 'Bitcoin will be high!'
             # self.buy_bitcoins()
+            self.bitcoin_bought_price = 1.0
+            self.bitcoin_bought_amount = self.analyze.get_now_ask_price()
             while(infinite_profit_loop):
                 print self.analyze.get_now_ask_price()
                 profit = (self.bitcoin_bought_price * self.bitcoin_bought_amount) + (self.bitcoin_bought_price * self.bitcoin_bought_amount) * 0.4
