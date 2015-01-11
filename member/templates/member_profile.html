@@ -4,38 +4,95 @@
 {% block head_block %} {% endblock %}
 
 {% block page_callout %}
-	<div class="container">
-		<div class="row">
-			<div class="span6">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
                 <div class="breadcrumbs">You are here:
                     <ul>
                         <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                        <li>Pricing Table</li>
+                        <li>Profile</li>
                     </ul>
                 </div>
             </div>
 
             <div class="span6">
-                <div class="page-name">Pricing Table	</div>
+                <div class="page-name">Profile</div>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block body_block %}
-    <ul>
-    {% if member.photo %}
-        <img data-retina="" src="/media/{{ member.photo }}" width="370">
-    {% else %}
-        <img data-retina="" src="/media/profile_photos/default.png" width="370">
-    {% endif %}
-    <li>{{ request.user.username }}</li>
-    <li>{{ request.user.first_name }}</li>
-    <li>{{ request.user.last_name }}</li>
-    <li>{{ request.user.email }}</li>
-<a href="/member/edit_member_profile">edit profile</a>
-    <a href="/accounts/password/">change password</a>
-</ul>
+    <!-- Left sidebar -->
+
+    <!-- MAIN CONTENT -->
+    <div class="span12">
+
+        <div id="post-3779" class="post-3779 page type-page status-publish hentry instock">
+
+            <div class="main-row wpb_row vc_row-fluid     padding-top-0    ">
+
+
+                <div class="vc_span12 wpb_column column_container">
+                    <div class="wpb_wrapper">
+                        <div class="empty-space"></div>
+                        <div class="wpb_row vc_row-fluid">
+                            <div class="vc_span6 wpb_column column_container">
+                                <div class="wpb_wrapper">
+
+                                    <div class="wpb_gallery wpb_content_element clearfix">
+                                        <div class="wpb_wrapper">
+                                            {% if member.photo %}
+            <img data-retina="" src="/media/{{ member.photo }}" width="370" height="330">
+        {% else %}
+            <img data-retina="" src="/media/profile_photos/default.png" width="370" height="330">
+        {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vc_span6 wpb_column column_container">
+                                <div class="wpb_wrapper">
+
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <h3>Profile Information </h3>
+
+                                            <p>
+                                                <span style="font-weight: bold">Username </span><br/>
+                                                {{ request.user.username }}
+                                                <br/>
+                                                <br/>
+                                                <span style="font-weight: bold">First Name </span><br/>
+                                                {{ request.user.first_name }}
+                                                <br/>
+                                                <br/>
+                                                <span style="font-weight: bold">Last Name </span><br/>
+                                                {{ request.user.last_name }}
+                                                <br/>
+                                                <br/>
+                                                <span style="font-weight: bold">E-Mail </span><br/>
+                                                {{ request.user.email }}</p>
+                                            <a href="/member/edit_member_profile" class="round-button ">Edit Profile</a>
+                                            <a href="/accounts/password" class="round-button ">Change Password</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="empty-space"></div>
+                        <div class="wpb_separator wpb_content_element"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right sidebar -->
 {% endblock %}
 
 {% block quote_section_block %} {% endblock %}
