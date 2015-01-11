@@ -43,10 +43,12 @@
                                     <div class="wpb_gallery wpb_content_element clearfix">
                                         <div class="wpb_wrapper">
                                             {% if member.photo %}
-            <img data-retina="" src="/media/{{ member.photo }}" width="370" height="330">
-        {% else %}
-            <img data-retina="" src="/media/profile_photos/default.png" width="370" height="330">
-        {% endif %}
+                                                <img data-retina="" src="/media/{{ member.photo }}" width="370"
+                                                     height="330">
+                                            {% else %}
+                                                <img data-retina="" src="/media/profile_photos/default.png" width="370"
+                                                     height="330">
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
