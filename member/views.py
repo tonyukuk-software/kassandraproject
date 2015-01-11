@@ -35,7 +35,7 @@ def new_member(request):
 
             member = User.objects.filter(username=username)[0]
             code = str(uuid.uuid4())
-            activation = Activation.objects.create(activivation_code=code, user=member)
+            activation = Activation.objects.create(activation_code=code, user=member)
             activation.save()
 
             context = Context({'username': member.username, 'email': member.email, 'activation_code': code})

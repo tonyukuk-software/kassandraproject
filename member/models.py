@@ -25,7 +25,7 @@ class Member_Pay(models.Model):
 
 
 class Activation(models.Model):
-    activivation_code = models.CharField(max_length=36, null=True)
+    activation_code = models.CharField(max_length=36, null=True)
     user = models.ForeignKey(User)
 
     def __unicode__(self):
