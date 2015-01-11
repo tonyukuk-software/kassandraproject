@@ -4,35 +4,138 @@
 {% block head_block %} {% endblock %}
 
 {% block page_callout %}
-	<div class="container">
-		<div class="row">
-			<div class="span6">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
                 <div class="breadcrumbs">You are here:
                     <ul>
                         <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                        <li>Contact US</li>
+                        <li>Contact Us</li>
                     </ul>
                 </div>
             </div>
 
             <div class="span6">
-                <div class="page-name">Pricing Table	</div>
+                <div class="page-name">Contact Us</div>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block body_block %}
-{% if form.errors %}
-        <p>{{ form.errors }}</p>
-    {% endif %}
-<form method='POST'>
-    {% csrf_token %}
-    <table border=1>
-        {{ form }}
-    </table>
-    <input type='submit' value='Submit'/>
-</form>
+
+    <!-- Left sidebar -->
+
+    <!-- MAIN CONTENT -->
+    <div class="span12">
+
+        <div id="post-3071" class="post-3071 page type-page status-publish hentry instock">
+
+            <div style="background-color: ; background-image: url();" class="main-row wpb_row vc_row-fluid        ">
+                <div class="vc_span12 wpb_column column_container">
+                    <div class="wpb_wrapper">
+
+                        <div class="wpb_tour wpb_content_element" data-interval="0">
+                            <div class="wpb_wrapper wpb_tour_tabs_wrapper ui-tabs clearfix ui-widget ui-widget-content ui-corner-all">
+                                <div id="tab-1380624103-1-99"
+                                     class="wpb_tab ui-tabs-panel wpb_ui-tabs-hide clearfix ui-widget-content ui-corner-bottom"
+                                     aria-labelledby="ui-id-1" role="tabpanel" aria-expanded="true" aria-hidden="false"
+                                     style="display: block; width: 100%;">
+
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <h2>Email us. We won’t bite.</h2>
+
+                                            <div id="tab-1380623590-1-59" role="tabpanel">
+                                                <div>
+                                                    <div>
+                                                        <p>We work with clients big and small across a range of sectors
+                                                            and we utilise all forms of media to get your name out there
+                                                            in a way that’s right for you big and small across a range
+                                                            of sectors and we utilise all forms of media to get your
+                                                            name out there in a way that’s right for you. We believe
+                                                            that analysis of your company and your customers is key in
+                                                            responding effectively to your promotional needs.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="tab-1380623590-1-60" role="tabpanel">
+                                                <div>
+                                                    <div>
+                                                        {% if form.errors %}
+                                                            <p>{{ form.errors }}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wpcf7" id="wpcf7-f2638-p3071-o1">
+                                        <form method="post"
+                                              class="wpcf7-form" novalidate="novalidate">
+                                            {% csrf_token %}
+                                            <p>Your Name (required)<br>
+                                                <span class="wpcf7-form-control-wrap your-name"><input type="text"
+                                                                                                       id="id_name"
+                                                                                                       maxlength="250"
+                                                                                                       name="name"
+                                                                                                       value=""
+                                                                                                       size="40"
+                                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                                                                                       aria-required="true"></span>
+                                            </p>
+
+                                            <p>Your Email (required)<br>
+                                                <span class="wpcf7-form-control-wrap your-email"><input type="email"
+                                                                                                        id="id_email"
+                                                                                                        maxlength="250"
+                                                                                                        name="email"
+                                                                                                        value=""
+                                                                                                        size="40"
+                                                                                                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                                                                        aria-required="true"></span>
+                                            </p>
+
+                                            <p>Subject<br>
+                                                <span class="wpcf7-form-control-wrap your-subject"><input type="text"
+                                                                                                          id="id_subject"
+                                                                                                          maxlength="250"
+                                                                                                          name="subject"
+                                                                                                          value=""
+                                                                                                          size="40"
+                                                                                                          class="wpcf7-form-control wpcf7-text"></span>
+                                            </p>
+
+                                            <p>Your Message<br>
+                                                <span class="wpcf7-form-control-wrap your-message"><textarea
+                                                        id="id_message" maxlength="500" name="message" cols="40" rows="10"
+                                                        class="wpcf7-form-control wpcf7-textarea"></textarea></span></p>
+
+                                            <p><input type="submit" value="Send"
+                                                      class="wpcf7-form-control wpcf7-submit"><img class="ajax-loader"
+                                                                                                   style="visibility: hidden;">
+                                            </p>
+
+                                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="wpb_tour_next_prev_nav clearfix"><span class="wpb_prev_slide"><a
+                                        href="#prev" title="Previous slide">Previous slide</a></span> <span
+                                        class="wpb_next_slide"><a href="#next" title="Next slide">Next slide</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right sidebar -->
 {% endblock %}
 
 {% block quote_section_block %} {% endblock %}

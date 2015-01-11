@@ -8,7 +8,7 @@ class forgotten_password_form(forms.Form):
 
 
 class contact_us_form(forms.Form):
-    subjact = forms.CharField(max_length=250)
-    name = subjact = forms.CharField(max_length=250)
+    subject = forms.CharField(max_length=250)
+    name = forms.CharField(max_length=250)
     email = forms.CharField(max_length=250)
     message = forms.CharField(max_length=500)
