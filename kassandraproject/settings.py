@@ -29,11 +29,11 @@ ACCESS_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAOVDbQAAAAAAx5iO14wObCejEeQ9r5itFDamj7g%3De1
 SECRET_KEY = 'znj802py!=$*@26s*=gy(1vg1is5$wnlwtzzvnr7^v@qzrrq1f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
