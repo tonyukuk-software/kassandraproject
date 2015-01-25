@@ -1,0 +1,20 @@
+.page-container {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+		box-shadow: 8px 0 5px -6px rgba(0, 0, 0, 0.06), -8px 0 5px -6px rgba(0, 0, 0, 0.06), 0 5px 35px -3px rgba(0, 0, 0, 0.2);
+}
+.page-container .header {
+	width: 1200px;
+}
+.page-container .ls-wp-fullwidth-helper, .page-container .ls-wp-container {
+	width: 100% !important;
+	margin-left: auto;
+	margin-right: auto;
+	left: auto !important;
+	right: auto !important;
+}
+body {
+	background: url("img/tileable_wood_texture.png") repeat;
+}
