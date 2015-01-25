@@ -104,6 +104,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR + '/media'

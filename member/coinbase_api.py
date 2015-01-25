@@ -10,7 +10,7 @@ from coinbase import *
 
 class coinbase_api:
     def __init__(self):
-        self.account = coinbase.CoinbaseAccount(oauth2_credentials=None, api_key='FsziO6obdo5YJaZc', api_secret='BSNlZmyjEY9HB704WODeZDaS5NVSs3oL',
+        self.account = coinbase.CoinbaseAccount(oauth2_credentials=None, api_key='fLw6R7MWkmD3ujo5', api_secret='sqiMhWSvYwWTMI1j6ZWGd0UffSfftX2X',
                  allow_transfers=True)
 
 
@@ -64,8 +64,8 @@ class coinbase_api:
             text='Pay With Bitcoin',
             type='buy_now',
             variable_price=False,
-            success_url='http://127.0.0.1:8000/member/success_url/' + str(order_id) + '/' + str(package_id),
-            cancel_url='http://127.0.0.1:8000/member/cancel',
+            success_url='http://kassandraproject.com/member/success_url/' + str(order_id) + '/' + str(package_id),
+            cancel_url='http://kassandraproject.com/member/cancel',
         )
         button = self.account.create_button(expected_button)
         return button
