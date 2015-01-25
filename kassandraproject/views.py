@@ -71,7 +71,7 @@ def contact_us(request):
                 message = request.POST.get('message')
 
                 mailgun_operator = mailgun()
-                mailgun_operator.send_mail('se.cemkiy@gmail.com', name + message + email, subject)
+                mailgun_operator.send_mail('se.cemkiy@gmail.com', "name:" + name + " " + "email:" + email + " " + "subject:" + subject + " " + "message:" + message)
             except Exception as e:
                 print e
                 return HttpResponseRedirect('/sorry')
