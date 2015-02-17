@@ -41,7 +41,7 @@ class mailgun:
 
 
     def render_template(self, template_name, context):
-        template = get_template("mail_user_activation.html")
+        template = get_template(template_name)
 
         content = template.render(context)
         return content
