@@ -154,10 +154,11 @@ def cancel_url(request):
 
 def user_activation(request, identity):
     try:
-        active = Activation.objects.filter(activivation_code=identity)[0]
+        active = Activation.objects.filter(activation_code=identity)[0]
         user = User.objects.filter(id=active.user.id)[0]
     except Exception as e:
-        return HttpResponseRedirect(e)
+        print e
+        return HttpResponseRedirect('/sorry')
     try:
         if user:
             user.is_active = True
@@ -166,4 +167,5 @@ def user_activation(request, identity):
             active.delete()
             return HttpResponseRedirect('/accounts/login/')
     except Exception as e:
-        return HttpResponseRedirect(e)
+        print e
+        return HttpResponseRedirect('/sorry')
