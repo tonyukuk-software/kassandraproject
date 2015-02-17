@@ -156,8 +156,8 @@ def user_activation(request, identity):
     try:
         active = Activation.objects.filter(activivation_code=identity)[0]
         user = User.objects.filter(id=active.user.id)[0]
-    except:
-        return HttpResponseRedirect('/sorry')
+    except Exception as e:
+        return HttpResponseRedirect(e)
     try:
         if user:
             user.is_active = True
@@ -165,5 +165,5 @@ def user_activation(request, identity):
             user.save()
             active.delete()
             return HttpResponseRedirect('/accounts/login/')
-    except:
-        return HttpResponseRedirect('/sorry')
+    except Exception as e:
+        return HttpResponseRedirect(e)
